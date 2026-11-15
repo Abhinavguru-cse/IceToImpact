@@ -1,0 +1,26 @@
+
+# Ignore large satellite datasets
+DATASETS/
+data/raw/
+
+# Ignore Python temporary files
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Ignore frontend dependencies
+node_modules/
+dist/
+
+# Ignore private credentials
+.env
+.env.*
+
+# Ignore large raster files
+*.tif
+*.tiff
+
+# Ignore temporary files
+*.log
+*.tmp

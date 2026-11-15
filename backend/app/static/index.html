@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>South Lhonak Glacial Lake Monitoring Platform | IceToImpact</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="app-header">
+    <div class="header-brand">
+      <div class="logo-mark">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="header-title">South Lhonak Glacial Lake Monitoring</h1>
+        <p class="header-subtitle">Satellite SAR Observation & GLOF Susceptibility Assessment Platform</p>
+      </div>
+    </div>
+    <div class="header-badges">
+      <span class="badge badge-satellite">NISAR L-band & S1</span>
+      <span class="badge badge-active">Active Monitoring</span>
+      <span class="badge badge-model" id="modelBadge">GMM-EM Trained</span>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="dashboard-grid">
+
+    <!-- Top Controls Row -->
+    <section class="control-panel card">
+      <div class="control-group">
+        <label for="regionSelect">Glacier / Region</label>
+        <select id="regionSelect">
+          <option value="south_lhonak">South Lhonak Lake (North Sikkim, India)</option>
+        </select>
+      </div>
+
+      <div class="control-group date-control">
+        <label for="dateSelect">Satellite Observation Date</label>
+        <div class="date-select-wrapper">
+          <select id="dateSelect">
+            <!-- Populated dynamically via JS -->
+          </select>
+          <span class="satellite-pill" id="satellitePill">NISAR</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>Polarization Channel</label>
+        <div class="btn-toggle-group" id="polToggle">
+          <button class="btn-toggle active" data-pol="HH">HH / VV</button>
+          <button class="btn-toggle" data-pol="HV">HV / VH</button>
+        </div>
+      </div>
+
+      <div class="control-group opacity-control">
+        <label for="opacitySlider">Radar Layer Opacity: <span id="opacityVal">85%</span></label>
+        <input type="range" id="opacitySlider" min="0" max="100" value="85">
+      </div>
+    </section>
+
+    <!-- Map & Summary Row -->
+    <div class="map-summary-container">
+      
+      <!-- Interactive Radar Map -->
+      <section class="map-card card">
+        <div class="map-header">
+          <div class="map-title-row">
+            <h2 class="section-title">Satellite Radar Map Viewer</h2>
+            <span class="coords-display" id="coordsDisplay">27.9144° N, 88.1836° E | 5,200 m a.s.l.</span>
+          </div>
+          <div class="map-quick-toggles">
+            <label class="toggle-label">
+              <input type="checkbox" id="toggleBoundary" checked> Lake Boundary Overlay
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="toggleRadar" checked> Processed SAR Layer
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="toggleMoraine" checked> Moraine Dam Marker
+            </label>
+          </div>
+        </div>
+
+        <div id="map" class="radar-map-view"></div>
+
+        <div class="map-legend">
+          <div class="legend-item"><span class="legend-color legend-water"></span> Delineated Water Boundary</div>
+          <div class="legend-item"><span class="legend-color legend-radar"></span> SAR Backscatter (Calibrated dB)</div>
+          <div class="legend-item"><span class="legend-color legend-moraine"></span> Terminal Moraine Breach Point (2023)</div>
+          <div class="legend-item"><span class="legend-color legend-river"></span> Teesta Downstream Drainage</div>
+        </div>
+      </section>
+
+      <!-- Observation Metrics Sidebar -->
+      <aside class="metrics-sidebar">
+        
+        <div class="metric-card card primary-metric">
+          <div class="metric-label">Detected Lake Surface Area</div>
+          <div class="metric-value-row">
+            <span class="metric-value" id="lakeAreaVal">--</span>
+            <span class="metric-unit">km²</span>
+          </div>
+          <div class="metric-secondary-row">
+            <span id="lakeAreaHa">-- hectares</span> • <span id="lakeAreaM2">-- m²</span>
+          </div>
+          <div class="metric-delta" id="areaDeltaPill">
+            <span id="areaDeltaText">Analyzing change...</span>
+          </div>
+        </div>
+
+        <div class="metric-card card">
+          <div class="metric-label">Observation Details</div>
+          <table class="meta-table">
+            <tr>
+              <td>Acquisition Date:</td>
+              <td class="table-val" id="metaDate">--</td>
+            </tr>
+            <tr>
+              <td>Satellite Mission:</td>
+              <td class="table-val" id="metaSat">--</td>
+            </tr>
+            <tr>
+              <td>Sensor & Band:</td>
+              <td class="table-val" id="metaSensor">L-band SAR</td>
+            </tr>
+            <tr>
+              <td>Processing Level:</td>
+              <td class="table-val" id="metaMode">GCOV Level 2</td>
+            </tr>
+            <tr>
+              <td>Polarization:</td>
+              <td class="table-val" id="metaPol">HH</td>
+            </tr>
+            <tr>
+              <td>Resolution / Grid:</td>
+              <td class="table-val">10m UTM Zone 45N</td>
+            </tr>
+            <tr>
+              <td>Model Method:</td>
+              <td class="table-val" id="metaMethod">GMM-EM Water Segmenter</td>
+            </tr>
+            <tr>
+              <td>Quality Status:</td>
+              <td class="table-val"><span class="status-pill status-verified" id="metaStatus">Verified</span></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="metric-card card quick-stats-card">
+          <div class="metric-label">GLOF Context (Oct 4, 2023 Breach)</div>
+          <p class="stat-desc">
+            Pre-GLOF lake area: <strong>1.62 km²</strong>. Moraine failure drained approx <strong>~1.13 km² (70%)</strong> in 2023. Current observation shows stabilized basin refill at <strong>5,200m</strong> elevation.
+          </p>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- Multi-Date Comparison Panel -->
+    <section class="comparison-section card">
+      <div class="comparison-header">
+        <div>
+          <h2 class="section-title">Multi-Date Change Detection & Comparison</h2>
+          <p class="section-desc">Select two observation dates to evaluate surface area change, boundary retreat, or refill trends.</p>
+        </div>
+        <button class="btn btn-primary" id="btnCompareCustom">Compare Selected Dates</button>
+      </div>
+
+      <div class="comparison-selectors">
+        <div class="comp-col">
+          <label for="earlierDateSelect">Earlier Observation (Baseline)</label>
+          <select id="earlierDateSelect"></select>
+          <div class="comp-stat-box" id="earlierBox">
+            <span class="comp-stat-label">Area:</span> <strong id="earlierArea">--</strong>
+          </div>
+        </div>
+
+        <div class="comp-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+
+        <div class="comp-col">
+          <label for="laterDateSelect">Later Observation (Comparison)</label>
+          <select id="laterDateSelect"></select>
+          <div class="comp-stat-box" id="laterBox">
+            <span class="comp-stat-label">Area:</span> <strong id="laterArea">--</strong>
+          </div>
+        </div>
+
+        <div class="comp-results-box" id="compResultsBox">
+          <div class="result-metric">
+            <span class="res-label">Net Area Change:</span>
+            <span class="res-val" id="resDeltaKm2">--</span>
+          </div>
+          <div class="result-metric">
+            <span class="res-label">Percentage Shift:</span>
+            <span class="res-val" id="resDeltaPct">--</span>
+          </div>
+          <div class="result-metric">
+            <span class="res-label">Dynamic Trend:</span>
+            <span class="trend-badge" id="resTrendBadge">--</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Precomputed Landmark Events Table -->
+      <div class="landmark-comparisons">
+        <h3 class="subsection-title">Key Monitoring Intervals</h3>
+        <div class="table-responsive">
+          <table class="comparison-table" id="landmarkTable">
+            <thead>
+              <tr>
+                <th>Monitoring Interval</th>
+                <th>Earlier Date</th>
+                <th>Later Date</th>
+                <th>Earlier Area</th>
+                <th>Later Area</th>
+                <th>Absolute Change</th>
+                <th>% Change</th>
+                <th>Trend</th>
+              </tr>
+            </thead>
+            <tbody id="landmarkTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lake Area Time-Series Graph -->
+    <section class="chart-section card">
+      <div class="chart-header">
+        <div>
+          <h2 class="section-title">Lake Surface Area Over Time (2023 - 2026)</h2>
+          <p class="section-desc">Empirical time-series from Sentinel-1 and NISAR SAR observations. Gaps represent unobserved intervals; values are not artificially interpolated.</p>
+        </div>
+        <div class="chart-legend-custom">
+          <span class="legend-dot dot-pre"></span> Pre-GLOF Baseline
+          <span class="legend-dot dot-post"></span> Post-GLOF NISAR Time-Series
+        </div>
+      </div>
+      <div class="chart-canvas-wrapper">
+        <canvas id="areaChart"></canvas>
+      </div>
+    </section>
+
+    <!-- GLOF Susceptibility & Risk Factors Panel -->
+    <section class="risk-section card">
+      <div class="risk-header">
+        <h2 class="section-title">GLOF Susceptibility & Downstream Exposure Analysis</h2>
+        <span class="badge badge-warning">Research Screening Indicators</span>
+      </div>
+      <p class="risk-intro">
+        Glacial lake outburst flood susceptibility is governed by complex interactions between lake volume, terminal moraine integrity, hanging glacier ice-avalanches, and steep mountain topography. The indicators below reflect empirical satellite observations and geospatial terrain data.
+      </p>
+
+      <div class="risk-cards-grid" id="riskGrid">
+        <!-- Populated dynamically via JS -->
+      </div>
+
+      <div class="disclaimer-banner">
+        <div class="disclaimer-icon">⚠️</div>
+        <div class="disclaimer-text">
+          <strong>Scientific & Safety Disclaimer:</strong> This platform is a research, monitoring, and decision-support system developed to assess satellite remote sensing observations. It is not an official flood warning, forecasting, or evacuation directive. In any disaster or emergency scenario, users must strictly heed instructions issued by the Sikkim State Disaster Management Authority (SSDMA), Central Water Commission (CWC), and National Disaster Management Authority (NDMA).
+        </div>
+      </div>
+    </section>
+
+    <!-- Dataset Explorer Section -->
+    <section class="datasets-section card">
+      <div class="datasets-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <div>
+          <h2 class="section-title">Integrated Geospatial &amp; Satellite Dataset Catalog</h2>
+          <p class="section-desc">Missions, SAR backscatter products, digital elevation models, glacier inventories, and downstream infrastructure assets loaded in the platform.</p>
+        </div>
+        <span class="badge badge-satellite" id="datasetsCountBadge">6 Datasets Loaded</span>
+      </div>
+      <div class="datasets-grid" id="datasetsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem;">
+        <!-- Populated dynamically via JS from /api/v1/datasets -->
+      </div>
+    </section>
+
+    <!-- Data Sources & Methodology Modal / Section -->
+    <section class="methodology-section card">
+      <h2 class="section-title">Data Provenance & Scientific Methodology</h2>
+      <div class="methodology-grid">
+        <div class="method-col">
+          <h4>Satellite Remote Sensing Data</h4>
+          <ul>
+            <li><strong>NASA-ISRO SAR (NISAR)</strong>: L-band Geocoded Backscatter (GCOV Level 2) products (2025-2026). Dual-pol frequency A/B, 10m/20m pixel spacing in UTM Zone 45N.</li>
+            <li><strong>Copernicus Sentinel-1A</strong>: C-band IW GRDH dual-polarization (VV+VH) observation from 28 September 2023 (pre-GLOF historical baseline).</li>
+          </ul>
+        </div>
+        <div class="method-col">
+          <h4>Machine Learning Segmentation</h4>
+          <ul>
+            <li><strong>Model Architecture</strong>: Gaussian Mixture Model (GMM) with Expectation-Maximization fit across multi-temporal backscatter distributions.</li>
+            <li><strong>Decision Boundary</strong>: Optimal statistical thresholding separating low-backscatter specular water from rough mountain terrain, coupled with 8-connected component spatial filtering.</li>
+            <li><strong>Area Calculation</strong>: Derived from georeferenced polygon geometries with WGS84 ellipsoidal transformation.</li>
+          </ul>
+        </div>
+        <div class="method-col">
+          <h4>Geospatial Supporting Datasets</h4>
+          <ul>
+            <li><strong>Copernicus 30m DEM</strong>: Slope, elevation, and terrain shadow masking.</li>
+            <li><strong>OpenStreetMap Teesta Basin</strong>: 18,760 mapped infrastructure assets (bridges, settlements, roads).</li>
+            <li><strong>Randolph Glacier Inventory (RGI v7)</strong>: South Asia East glacier boundaries and hypsometry.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>South Lhonak Glacial Lake Monitoring Platform (IceToImpact) • Developed for NASA Space Apps & Geospatial Research • Real Satellite Data & Traceable Scientific Analysis</p>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Application JS -->
+  <script src="/static/app.js"></script>
+</body>
+</html>

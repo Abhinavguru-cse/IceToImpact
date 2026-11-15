@@ -1,0 +1,20 @@
+{
+  "model_type": "GaussianMixtureModel_1D_SAR",
+  "n_components": 2,
+  "means_db": [
+    -11.659971864373004,
+    -7.370967294881665
+  ],
+  "variances": [
+    12.542830363364793,
+    24.999829663812957
+  ],
+  "weights": [
+    0.41900337765913254,
+    0.5809928161527946
+  ],
+  "fisher_discriminant_ratio": 0.4899908579679953,
+  "optimal_threshold_db": -9.806432201175742,
+  "log_likelihood": -612779.0090870544,
+  "converged": false
+}

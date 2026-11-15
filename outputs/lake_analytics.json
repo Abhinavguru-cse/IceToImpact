@@ -1,0 +1,1127 @@
+{
+  "metadata": {
+    "project": "South Lhonak Glacial Lake Monitoring Platform (IceToImpact)",
+    "generated_at": "2026-11-15T07:00:00Z",
+    "study_area": "South Lhonak Lake, North Sikkim, India",
+    "center": [
+      27.9144,
+      88.1836
+    ],
+    "crop_bounds": [
+      [
+        27.908517,
+        88.175341
+      ],
+      [
+        27.922203,
+        88.192467
+      ]
+    ]
+  },
+  "model_evaluation": {
+    "model_type": "GaussianMixtureModel_1D_SAR",
+    "n_components": 2,
+    "means_db": [
+      -11.659971864373004,
+      -7.370967294881665
+    ],
+    "variances": [
+      12.542830363364793,
+      24.999829663812957
+    ],
+    "weights": [
+      0.41900337765913254,
+      0.5809928161527946
+    ],
+    "fisher_discriminant_ratio": 0.4899908579679953,
+    "optimal_threshold_db": -9.806432201175742,
+    "log_likelihood": -612779.0090870544,
+    "converged": false
+  },
+  "baseline_otsu_threshold_db": -9.092478580772877,
+  "observations": [
+    {
+      "id": "s1_20230928",
+      "date": "2023-09-28",
+      "satellite": "Sentinel-1A",
+      "sensor": "C-band SAR",
+      "polarization": "VV+VH",
+      "status": "Historical Pre-GLOF",
+      "area_km2": 1.624,
+      "area_ha": 162.4,
+      "area_m2": 1624000.0,
+      "pixel_count": 16240,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": null,
+      "boundary_geojson_url": "/static/boundaries/s1_20230928.geojson"
+    },
+    {
+      "id": "nisar_20251130",
+      "date": "2025-11-30",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Beta",
+      "area_km2": 0.4907,
+      "area_ha": 49.07,
+      "area_m2": 490700.0,
+      "pixel_count": 4907,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20251130_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20251130.geojson"
+    },
+    {
+      "id": "nisar_20251212",
+      "date": "2025-12-12",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Beta",
+      "area_km2": 0.4884,
+      "area_ha": 48.84,
+      "area_m2": 488400.0,
+      "pixel_count": 1221,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20251212_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20251212.geojson"
+    },
+    {
+      "id": "nisar_20251224",
+      "date": "2025-12-24",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Beta",
+      "area_km2": 0.4928,
+      "area_ha": 49.28,
+      "area_m2": 492800.0,
+      "pixel_count": 1232,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20251224_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20251224.geojson"
+    },
+    {
+      "id": "nisar_20260105",
+      "date": "2026-01-05",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Beta",
+      "area_km2": 0.4952,
+      "area_ha": 49.52,
+      "area_m2": 495200.0,
+      "pixel_count": 1238,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260105_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260105.geojson"
+    },
+    {
+      "id": "nisar_20260117",
+      "date": "2026-01-17",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Beta",
+      "area_km2": 0.492,
+      "area_ha": 49.2,
+      "area_m2": 492000.0,
+      "pixel_count": 1230,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260117_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260117.geojson"
+    },
+    {
+      "id": "nisar_20260618",
+      "date": "2026-06-18",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.7997,
+      "area_ha": 79.97,
+      "area_m2": 799700.0,
+      "pixel_count": 7997,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260618_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260618.geojson"
+    },
+    {
+      "id": "nisar_20260622",
+      "date": "2026-06-22",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.6433,
+      "area_ha": 64.33,
+      "area_m2": 643300.0,
+      "pixel_count": 6433,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260622_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260622.geojson"
+    },
+    {
+      "id": "nisar_20260625",
+      "date": "2026-06-25",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 2.4114,
+      "area_ha": 241.14,
+      "area_m2": 2411400.0,
+      "pixel_count": 24114,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260625_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260625.geojson"
+    },
+    {
+      "id": "nisar_20260630",
+      "date": "2026-06-30",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.7526,
+      "area_ha": 75.26,
+      "area_m2": 752600.0,
+      "pixel_count": 7526,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260630_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260630.geojson"
+    },
+    {
+      "id": "nisar_20260704",
+      "date": "2026-07-04",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.9044,
+      "area_ha": 90.44,
+      "area_m2": 904400.0,
+      "pixel_count": 2261,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260704_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260704.geojson"
+    },
+    {
+      "id": "nisar_20260707",
+      "date": "2026-07-07",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.7188,
+      "area_ha": 71.88,
+      "area_m2": 718800.0,
+      "pixel_count": 7188,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260707_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260707.geojson"
+    },
+    {
+      "id": "nisar_20260712",
+      "date": "2026-07-12",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.6713,
+      "area_ha": 67.13,
+      "area_m2": 671300.0,
+      "pixel_count": 6713,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260712_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260712.geojson"
+    },
+    {
+      "id": "nisar_20260716",
+      "date": "2026-07-16",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.631,
+      "area_ha": 63.1,
+      "area_m2": 631000.0,
+      "pixel_count": 6310,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260716_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260716.geojson"
+    },
+    {
+      "id": "nisar_20260719",
+      "date": "2026-07-19",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.1565,
+      "area_ha": 15.65,
+      "area_m2": 156500.0,
+      "pixel_count": 1565,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260719_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260719.geojson"
+    },
+    {
+      "id": "nisar_20260724",
+      "date": "2026-07-24",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.8011,
+      "area_ha": 80.11,
+      "area_m2": 801100.0,
+      "pixel_count": 8011,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260724_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260724.geojson"
+    },
+    {
+      "id": "nisar_20260812",
+      "date": "2026-08-12",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.7375,
+      "area_ha": 73.75,
+      "area_m2": 737500.0,
+      "pixel_count": 7375,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260812_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260812.geojson"
+    },
+    {
+      "id": "nisar_20260817",
+      "date": "2026-08-17",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.6683,
+      "area_ha": 66.83,
+      "area_m2": 668300.0,
+      "pixel_count": 6683,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260817_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260817.geojson"
+    },
+    {
+      "id": "nisar_20260821",
+      "date": "2026-08-21",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.8676,
+      "area_ha": 86.76,
+      "area_m2": 867600.0,
+      "pixel_count": 2169,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260821_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260821.geojson"
+    },
+    {
+      "id": "nisar_20260824",
+      "date": "2026-08-24",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.6241,
+      "area_ha": 62.41,
+      "area_m2": 624100.0,
+      "pixel_count": 6241,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260824_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260824.geojson"
+    },
+    {
+      "id": "nisar_20260829",
+      "date": "2026-08-29",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.7625,
+      "area_ha": 76.25,
+      "area_m2": 762500.0,
+      "pixel_count": 7625,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260829_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260829.geojson"
+    },
+    {
+      "id": "nisar_20260905",
+      "date": "2026-09-05",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.6133,
+      "area_ha": 61.33,
+      "area_m2": 613300.0,
+      "pixel_count": 6133,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260905_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260905.geojson"
+    },
+    {
+      "id": "nisar_20260910",
+      "date": "2026-09-10",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.7462,
+      "area_ha": 74.62,
+      "area_m2": 746200.0,
+      "pixel_count": 7462,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260910_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260910.geojson"
+    },
+    {
+      "id": "nisar_20260914",
+      "date": "2026-09-14",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.8196,
+      "area_ha": 81.96,
+      "area_m2": 819600.0,
+      "pixel_count": 2049,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260914_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260914.geojson"
+    },
+    {
+      "id": "nisar_20260917",
+      "date": "2026-09-17",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.6882,
+      "area_ha": 68.82,
+      "area_m2": 688200.0,
+      "pixel_count": 6882,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260917_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260917.geojson"
+    },
+    {
+      "id": "nisar_20260922",
+      "date": "2026-09-22",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.7541,
+      "area_ha": 75.41,
+      "area_m2": 754100.0,
+      "pixel_count": 7541,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260922_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260922.geojson"
+    },
+    {
+      "id": "nisar_20260926",
+      "date": "2026-09-26",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.9006,
+      "area_ha": 90.06,
+      "area_m2": 900600.0,
+      "pixel_count": 9006,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260926_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260926.geojson"
+    },
+    {
+      "id": "nisar_20260929",
+      "date": "2026-09-29",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.7215,
+      "area_ha": 72.15,
+      "area_m2": 721500.0,
+      "pixel_count": 7215,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20260929_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20260929.geojson"
+    },
+    {
+      "id": "nisar_20261004",
+      "date": "2026-10-04",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 1.0178,
+      "area_ha": 101.78,
+      "area_m2": 1017800.0,
+      "pixel_count": 10178,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20261004_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20261004.geojson"
+    },
+    {
+      "id": "nisar_20261008",
+      "date": "2026-10-08",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.8648,
+      "area_ha": 86.48,
+      "area_m2": 864800.0,
+      "pixel_count": 2162,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20261008_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20261008.geojson"
+    },
+    {
+      "id": "nisar_20261011",
+      "date": "2026-10-11",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.7236,
+      "area_ha": 72.36,
+      "area_m2": 723600.0,
+      "pixel_count": 7236,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20261011_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20261011.geojson"
+    },
+    {
+      "id": "nisar_20261016",
+      "date": "2026-10-16",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.7669,
+      "area_ha": 76.69,
+      "area_m2": 766900.0,
+      "pixel_count": 7669,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20261016_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20261016.geojson"
+    },
+    {
+      "id": "nisar_20261020",
+      "date": "2026-10-20",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Provisional",
+      "area_km2": 0.6629,
+      "area_ha": 66.29,
+      "area_m2": 662900.0,
+      "pixel_count": 6629,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20261020_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20261020.geojson"
+    },
+    {
+      "id": "nisar_20261023",
+      "date": "2026-10-23",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Validated",
+      "area_km2": 0.7491,
+      "area_ha": 74.91,
+      "area_m2": 749100.0,
+      "pixel_count": 7491,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20261023_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20261023.geojson"
+    },
+    {
+      "id": "nisar_20261028",
+      "date": "2026-10-28",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Validated",
+      "area_km2": 1.0318,
+      "area_ha": 103.18,
+      "area_m2": 1031800.0,
+      "pixel_count": 10318,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20261028_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20261028.geojson"
+    },
+    {
+      "id": "nisar_20261101",
+      "date": "2026-11-01",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Validated",
+      "area_km2": 0.9884,
+      "area_ha": 98.84,
+      "area_m2": 988400.0,
+      "pixel_count": 2471,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20261101_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20261101.geojson"
+    },
+    {
+      "id": "nisar_20261104",
+      "date": "2026-11-04",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Validated",
+      "area_km2": 0.7099,
+      "area_ha": 70.99,
+      "area_m2": 709900.0,
+      "pixel_count": 7099,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20261104_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20261104.geojson"
+    },
+    {
+      "id": "nisar_20261109",
+      "date": "2026-11-09",
+      "satellite": "NISAR",
+      "sensor": "L-band SAR",
+      "polarization": "HH+HV",
+      "status": "Validated",
+      "area_km2": 0.7805,
+      "area_ha": 78.05,
+      "area_m2": 780500.0,
+      "pixel_count": 7805,
+      "bounds": [
+        [
+          27.908517,
+          88.175341
+        ],
+        [
+          27.922203,
+          88.192467
+        ]
+      ],
+      "radar_layer_url": "/static/layers/nisar_20261109_radar.png",
+      "boundary_geojson_url": "/static/boundaries/nisar_20261109.geojson"
+    }
+  ],
+  "comparisons": [
+    {
+      "comparison_title": "Pre-GLOF vs Initial NISAR Baseline (Disaster Impact)",
+      "earlier_id": "s1_20230928",
+      "earlier_date": "2023-09-28",
+      "earlier_satellite": "Sentinel-1A",
+      "earlier_area_km2": 1.624,
+      "later_id": "nisar_20251130",
+      "later_date": "2025-11-30",
+      "later_satellite": "NISAR",
+      "later_area_km2": 0.4907,
+      "area_change_km2": -1.1333,
+      "area_change_ha": -113.33,
+      "percentage_change": -69.78,
+      "trend": "Reduction",
+      "earlier_boundary_url": "/static/boundaries/s1_20230928.geojson",
+      "later_boundary_url": "/static/boundaries/nisar_20251130.geojson"
+    },
+    {
+      "comparison_title": "Winter 2025 vs Winter Freeze 2026",
+      "earlier_id": "nisar_20251130",
+      "earlier_date": "2025-11-30",
+      "earlier_satellite": "NISAR",
+      "earlier_area_km2": 0.4907,
+      "later_id": "nisar_20260117",
+      "later_date": "2026-01-17",
+      "later_satellite": "NISAR",
+      "later_area_km2": 0.492,
+      "area_change_km2": 0.0013,
+      "area_change_ha": 0.13,
+      "percentage_change": 0.26,
+      "trend": "Stable",
+      "earlier_boundary_url": "/static/boundaries/nisar_20251130.geojson",
+      "later_boundary_url": "/static/boundaries/nisar_20260117.geojson"
+    },
+    {
+      "comparison_title": "Winter Freeze vs Summer Melt Onset",
+      "earlier_id": "nisar_20260117",
+      "earlier_date": "2026-01-17",
+      "earlier_satellite": "NISAR",
+      "earlier_area_km2": 0.492,
+      "later_id": "nisar_20260618",
+      "later_date": "2026-06-18",
+      "later_satellite": "NISAR",
+      "later_area_km2": 0.7997,
+      "area_change_km2": 0.3077,
+      "area_change_ha": 30.77,
+      "percentage_change": 62.54,
+      "trend": "Expansion",
+      "earlier_boundary_url": "/static/boundaries/nisar_20260117.geojson",
+      "later_boundary_url": "/static/boundaries/nisar_20260618.geojson"
+    },
+    {
+      "comparison_title": "Summer Melt vs Peak Monsoon High Water",
+      "earlier_id": "nisar_20260618",
+      "earlier_date": "2026-06-18",
+      "earlier_satellite": "NISAR",
+      "earlier_area_km2": 0.7997,
+      "later_id": "nisar_20260821",
+      "later_date": "2026-08-21",
+      "later_satellite": "NISAR",
+      "later_area_km2": 0.8676,
+      "area_change_km2": 0.0679,
+      "area_change_ha": 6.79,
+      "percentage_change": 8.49,
+      "trend": "Expansion",
+      "earlier_boundary_url": "/static/boundaries/nisar_20260618.geojson",
+      "later_boundary_url": "/static/boundaries/nisar_20260821.geojson"
+    },
+    {
+      "comparison_title": "Peak Monsoon vs Autumn Anniversary",
+      "earlier_id": "nisar_20260821",
+      "earlier_date": "2026-08-21",
+      "earlier_satellite": "NISAR",
+      "earlier_area_km2": 0.8676,
+      "later_id": "nisar_20261023",
+      "later_date": "2026-10-23",
+      "later_satellite": "NISAR",
+      "later_area_km2": 0.7491,
+      "area_change_km2": -0.1185,
+      "area_change_ha": -11.85,
+      "percentage_change": -13.66,
+      "trend": "Reduction",
+      "earlier_boundary_url": "/static/boundaries/nisar_20260821.geojson",
+      "later_boundary_url": "/static/boundaries/nisar_20261023.geojson"
+    },
+    {
+      "comparison_title": "Autumn Anniversary vs Latest 2026 Observation",
+      "earlier_id": "nisar_20261023",
+      "earlier_date": "2026-10-23",
+      "earlier_satellite": "NISAR",
+      "earlier_area_km2": 0.7491,
+      "later_id": "nisar_20261109",
+      "later_date": "2026-11-09",
+      "later_satellite": "NISAR",
+      "later_area_km2": 0.7805,
+      "area_change_km2": 0.0314,
+      "area_change_ha": 3.14,
+      "percentage_change": 4.19,
+      "trend": "Expansion",
+      "earlier_boundary_url": "/static/boundaries/nisar_20261023.geojson",
+      "later_boundary_url": "/static/boundaries/nisar_20261109.geojson"
+    },
+    {
+      "comparison_title": "Pre-GLOF Historical vs 3-Year Post-GLOF Current State",
+      "earlier_id": "s1_20230928",
+      "earlier_date": "2023-09-28",
+      "earlier_satellite": "Sentinel-1A",
+      "earlier_area_km2": 1.624,
+      "later_id": "nisar_20261023",
+      "later_date": "2026-10-23",
+      "later_satellite": "NISAR",
+      "later_area_km2": 0.7491,
+      "area_change_km2": -0.8749,
+      "area_change_ha": -87.49,
+      "percentage_change": -53.87,
+      "trend": "Reduction",
+      "earlier_boundary_url": "/static/boundaries/s1_20230928.geojson",
+      "later_boundary_url": "/static/boundaries/nisar_20261023.geojson"
+    }
+  ],
+  "susceptibility": {
+    "study_area": {
+      "name": "South Lhonak Glacial Lake",
+      "region": "North Sikkim, India",
+      "coordinates": {
+        "lat": 27.9144,
+        "lon": 88.1836
+      },
+      "elevation_m": 5200,
+      "lake_type": "Moraine-dammed proglacial lake"
+    },
+    "latest_condition": {
+      "observation_date": "2026-11-09",
+      "surface_area_km2": 0.7805,
+      "surface_area_ha": 78.05,
+      "historical_pre_glof_area_km2": 1.624,
+      "net_volume_reduction_since_2023": "-78.3% drained following 4 Oct 2023 moraine breach"
+    },
+    "indicators": [
+      {
+        "category": "Lake Characteristics",
+        "indicator": "Surface Area & Expansion",
+        "status": "0.7805 km\u00b2 (Stabilized post-breach basin)",
+        "confidence": "High (10m L-band SAR verified)",
+        "risk_level": "Moderate (monitoring refill during monsoon)"
+      },
+      {
+        "category": "Dam Characteristics",
+        "indicator": "Terminal Moraine Dam",
+        "status": "Breached terminal moraine with active V-notch incised drainage outlet",
+        "confidence": "Validated (2023 GLOF field observations & DEM)",
+        "risk_level": "Elevated instability along moraine inner slopes"
+      },
+      {
+        "category": "Surrounding Topography",
+        "indicator": "Steep Slope Triggers",
+        "status": "Hanging glacier ice-cliffs and rock slopes (>40\u00b0) adjacent to lake head",
+        "confidence": "High (Copernicus 30m DEM analysis)",
+        "risk_level": "High (avalanche/rockfall displacement wave hazard)"
+      },
+      {
+        "category": "Downstream Exposure",
+        "indicator": "Teesta Basin Infrastructure",
+        "status": "18,760 mapped downstream features (Chungthang, Dikchu, Singtam)",
+        "confidence": "High (OpenStreetMap Teesta inventory)",
+        "risk_level": "Critical downstream vulnerability"
+      }
+    ],
+    "scientific_disclaimer": "This assessment provides preliminary scientific monitoring and change detection indicators. It is not an official governmental early-warning system or guaranteed flood forecast. Always consult the National Disaster Management Authority (NDMA) and Sikkim State Disaster Management Authority."
+  }
+}
